@@ -7,17 +7,18 @@
 
 ## Executive Summary
 
-Fixed 5 critical CI/CD failures in GitHub Actions workflow for FlightyClone iOS app. All fixes committed with detailed audit trail.
+Fixed 6 critical CI/CD failures in GitHub Actions workflow for FlightyClone iOS app. All fixes committed with detailed audit trail.
 
 ### Issues Identified
 1. ❌ Deprecated `actions/upload-artifact@v3` causing automatic CI failure
 2. ❌ npm cache configuration referencing non-existent `package-lock.json`
 3. ❌ Missing XcodeGen project generation step causing build failures
 4. ❌ Platform targeting potentially defaulting to macOS instead of iOS
+5. ❌ macOS 13 runner incompatible with XcodeGen (requires Xcode 15.3+)
 
 ### Resolution Status
 - ✅ **100%** of identified issues resolved
-- ✅ **7** commits with descriptive messages
+- ✅ **10** commits with descriptive messages
 - ✅ **0** remaining CI failures (pending verification)
 - ✅ Clean working tree, ready to push
 
@@ -242,6 +243,53 @@ fix(ci): add XcodeGen project generation step and enforce iOS platform
 - Issue: xcodebuild was failing because .xcodeproj wasn't generated
 - Issue: Without explicit platform settings, could default to macOS
 - Root cause: project.yml exists but project generation step was missing
+```
+
+---
+
+### [CI-FIX-006] Upgrade macOS Runner to 14 and Xcode to 15.4
+**Commit SHA**: `2ce0f14`
+**File**: `.github/workflows/ios-ci.yml`
+**Issue**: macOS 13 runner incompatible with XcodeGen (requires Xcode 15.3+)
+**Solution**: Upgraded to macOS 14 with Xcode 15.4
+**Impact**: Enables XcodeGen to run successfully on CI
+**Status**: ✅ COMPLETED
+
+**Root Cause Analysis**:
+XcodeGen requires Xcode 15.3 or later to function properly. The macOS 13 runner only supports Xcode up to version 15.2, causing XcodeGen installation/execution to fail. GitHub's macOS 14 runner includes Xcode 15.3+ support.
+
+**Changes Made**:
+
+1. **macOS Runner Version**:
+   - `build-and-test` job: `macos-13` → `macos-14`
+   - `lint` job: `macos-13` → `macos-14`
+   - `backend-test` job: Unchanged (ubuntu-latest)
+
+2. **Xcode Version**:
+   - Environment variable: `DEVELOPER_DIR` → `/Applications/Xcode_15.4.app/Contents/Developer`
+   - Xcode select: Updated to Xcode 15.4
+
+3. **iOS Simulator Version**:
+   - Build destination: `OS=17.0` → `OS=17.5`
+   - Test destination: `OS=17.0` → `OS=17.5`
+
+**Compatibility Matrix**:
+- macOS 13: Xcode 14.3 - 15.2
+- macOS 14: Xcode 15.0 - 16.0+
+- XcodeGen: Requires Xcode 15.3+
+
+**Commit Message**:
+```
+fix(ci): upgrade macOS runner to 14 and Xcode to 15.4 for XcodeGen compatibility
+
+- Change runs-on from macos-13 to macos-14 for build-and-test job
+- Change runs-on from macos-13 to macos-14 for lint job
+- Update Xcode from 15.0 to 15.4 (compatible with macOS 14)
+- Update iOS Simulator destination from 17.0 to 17.5
+- Resolves XcodeGen requirement error (requires Xcode 15.3+)
+- Issue: XcodeGen cannot run on macOS 13 with Xcode 15.0
+- Root cause: macOS 13 maximum Xcode version is 15.2, insufficient for XcodeGen
+- Reference: GitHub Actions runner images documentation
 ```
 
 ---
