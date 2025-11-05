@@ -2,6 +2,7 @@ name: FlightyClone
 options:
   bundleIdPrefix: com.flightyclone
   xcodeVersion: "15.4"
+  lastUpgradeVersion: "1540"
   deploymentTarget:
     iOS: 16.0
   developmentLanguage: en
