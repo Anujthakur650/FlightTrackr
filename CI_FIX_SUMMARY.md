@@ -4,7 +4,7 @@
 
 **Date**: 2024-11-05  
 **Status**: Ready to push  
-**Total Commits**: 8 (7 fixes + 1 doc update)
+**Total Commits**: 11 (8 fixes + 3 doc updates)
 
 ---
 
@@ -43,6 +43,20 @@
    - Updated audit trail with new fix
    - Changed: `CI_FIX_LOG.md`
 
+9. **cbc7bfa** - `docs(ci): update summary with XcodeGen fix`
+   - Updated summary documentation
+   - Changed: `CI_FIX_SUMMARY.md`
+
+10. **2ce0f14** - `fix(ci): upgrade macOS runner to 14 and Xcode to 15.4 for XcodeGen compatibility`
+    - Upgraded macOS runner from 13 to 14
+    - Upgraded Xcode from 15.0 to 15.4
+    - Updated iOS Simulator from 17.0 to 17.5
+    - Changed: `.github/workflows/ios-ci.yml`
+
+11. **af6f69b** - `docs(ci): update audit log with macOS runner upgrade fix`
+    - Added CI-FIX-006 documentation
+    - Changed: `CI_FIX_LOG.md`
+
 ---
 
 ## Files Changed
@@ -73,6 +87,10 @@
 4. ❌ → ✅ **Platform targeting issues**
    - Could target macOS instead of iOS
    - Set explicit SDKROOT and SUPPORTED_PLATFORMS
+
+5. ❌ → ✅ **macOS runner incompatibility**
+   - macOS 13 doesn't support Xcode 15.3+ required by XcodeGen
+   - Upgraded to macOS 14 with Xcode 15.4
 
 ---
 
