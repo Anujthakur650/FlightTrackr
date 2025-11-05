@@ -35,6 +35,14 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-spm-
     
+    - name: Install XcodeGen
+      run: brew install xcodegen
+    
+    - name: Generate Xcode project
+      run: |
+        cd FlightyClone
+        xcodegen generate
+    
     - name: Install dependencies (if using CocoaPods)
       run: |
         if [ -f "FlightyClone/Podfile" ]; then

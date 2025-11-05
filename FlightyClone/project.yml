@@ -26,6 +26,8 @@ targets:
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         TARGETED_DEVICE_FAMILY: 1,2
         SUPPORTS_MACCATALYST: false
+        SDKROOT: iphoneos
+        SUPPORTED_PLATFORMS: "iphoneos iphonesimulator"
     capabilities:
       - Push Notifications
       - Background Modes
