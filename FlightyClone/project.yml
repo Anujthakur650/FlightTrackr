@@ -1,0 +1,101 @@
+name: FlightyClone
+options:
+  bundleIdPrefix: com.flightyclone
+  deploymentTarget:
+    iOS: 16.0
+  developmentLanguage: en
+  
+settings:
+  base:
+    DEVELOPMENT_TEAM: YOUR_TEAM_ID
+    CODE_SIGN_STYLE: Automatic
+    SWIFT_VERSION: 5.9
+
+targets:
+  FlightyClone:
+    type: application
+    platform: iOS
+    sources:
+      - path: FlightyClone
+        excludes:
+          - "**/*.md"
+    settings:
+      base:
+        INFOPLIST_FILE: FlightyClone/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.flightyclone.app
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        TARGETED_DEVICE_FAMILY: 1,2
+        SUPPORTS_MACCATALYST: false
+    capabilities:
+      - Push Notifications
+      - Background Modes
+      - App Groups
+    dependencies:
+      - target: FlightyCloneWidget
+        embed: true
+    preBuildScripts:
+      - script: |
+          if which swiftlint >/dev/null; then
+            swiftlint
+          else
+            echo "warning: SwiftLint not installed"
+          fi
+        name: SwiftLint
+        
+  FlightyCloneTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - FlightyCloneTests
+    dependencies:
+      - target: FlightyClone
+    settings:
+      base:
+        BUNDLE_LOADER: $(TEST_HOST)
+        TEST_HOST: $(BUILT_PRODUCTS_DIR)/FlightyClone.app/FlightyClone
+        
+  FlightyCloneUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - FlightyCloneUITests
+    dependencies:
+      - target: FlightyClone
+      
+  FlightyCloneWidget:
+    type: app-extension
+    platform: iOS
+    sources:
+      - FlightyClone/Widgets
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.flightyclone.app.widget
+        INFOPLIST_FILE: FlightyClone/Widgets/Info.plist
+
+schemes:
+  FlightyClone:
+    build:
+      targets:
+        FlightyClone: all
+    run:
+      config: Debug
+      environmentVariables:
+        - variable: USE_MOCK_DATA
+          value: "0"
+          isEnabled: false
+    test:
+      config: Debug
+      gatherCoverageData: true
+      targets:
+        - name: FlightyCloneTests
+        - name: FlightyCloneUITests
+      environmentVariables:
+        - variable: USE_MOCK_DATA
+          value: "1"
+          isEnabled: true
+    profile:
+      config: Release
+    analyze:
+      config: Debug
+    archive:
+      config: Release

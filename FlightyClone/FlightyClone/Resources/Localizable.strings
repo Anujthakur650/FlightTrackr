@@ -1,0 +1,70 @@
+/* Main Navigation */
+"tab.flights" = "Flights";
+"tab.search" = "Search";
+"tab.tracked" = "Tracked";
+"tab.settings" = "Settings";
+
+/* Flight Status */
+"status.scheduled" = "Scheduled";
+"status.boarding" = "Boarding";
+"status.departed" = "Departed";
+"status.enroute" = "En Route";
+"status.landing" = "Landing";
+"status.landed" = "Landed";
+"status.cancelled" = "Cancelled";
+"status.diverted" = "Diverted";
+"status.unknown" = "Unknown";
+
+/* Flight Details */
+"detail.timeline" = "Timeline";
+"detail.departure" = "Departure";
+"detail.arrival" = "Arrival";
+"detail.enroute" = "En Route";
+"detail.stats" = "Flight Stats";
+"detail.altitude" = "Altitude";
+"detail.speed" = "Speed";
+"detail.heading" = "Heading";
+"detail.country" = "Country";
+
+/* Actions */
+"action.share" = "Share";
+"action.calendar" = "Add to Calendar";
+"action.notify" = "Notifications";
+"action.track" = "Track Flight";
+"action.untrack" = "Untrack Flight";
+"action.refresh" = "Refresh";
+"action.retry" = "Retry";
+
+/* Notifications */
+"notification.title.departure" = "%@ Departing Soon";
+"notification.title.arrival" = "%@ Arriving Soon";
+"notification.title.delay" = "%@ Delayed";
+"notification.title.gate" = "%@ Gate Change";
+"notification.title.boarding" = "%@ Now Boarding";
+
+/* Errors */
+"error.loading" = "Error Loading Flights";
+"error.network" = "Network Error";
+"error.ratelimit" = "Rate limit exceeded. Please try again later.";
+"error.unknown" = "An unknown error occurred";
+
+/* Settings */
+"settings.notifications" = "Notifications";
+"settings.data" = "Data";
+"settings.about" = "About";
+"settings.clear_cache" = "Clear Cache";
+"settings.version" = "Version";
+
+/* Empty States */
+"empty.flights" = "No Flights Available";
+"empty.tracked" = "No Tracked Flights";
+"empty.search" = "No results found";
+
+/* Delay Prediction */
+"delay.prediction" = "Delay Prediction";
+"delay.confidence" = "Confidence";
+"delay.estimated" = "Estimated Delay";
+"delay.factors" = "Factors";
+
+/* OpenSky Attribution */
+"attribution.opensky" = "Data provided by OpenSky Network";
