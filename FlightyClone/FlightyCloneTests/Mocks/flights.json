@@ -1,0 +1,30 @@
+[
+  {
+    "icao24": "a12345",
+    "firstSeen": 1699196400,
+    "estDepartureAirport": "KSFO",
+    "lastSeen": 1699200000,
+    "estArrivalAirport": "KJFK",
+    "callsign": "UAL123  ",
+    "estDepartureAirportHorizDistance": 100,
+    "estDepartureAirportVertDistance": 50,
+    "estArrivalAirportHorizDistance": 200,
+    "estArrivalAirportVertDistance": 100,
+    "departureAirportCandidatesCount": 1,
+    "arrivalAirportCandidatesCount": 1
+  },
+  {
+    "icao24": "b67890",
+    "firstSeen": 1699193000,
+    "estDepartureAirport": "EDDF",
+    "lastSeen": 1699200000,
+    "estArrivalAirport": "KJFK",
+    "callsign": "DLH456  ",
+    "estDepartureAirportHorizDistance": 150,
+    "estDepartureAirportVertDistance": 75,
+    "estArrivalAirportHorizDistance": 250,
+    "estArrivalAirportVertDistance": 125,
+    "departureAirportCandidatesCount": 1,
+    "arrivalAirportCandidatesCount": 1
+  }
+]

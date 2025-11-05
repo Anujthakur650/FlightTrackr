@@ -1,0 +1,48 @@
+OpenSky Network Terms of Use
+
+This application uses data from The OpenSky Network (https://opensky-network.org/).
+
+By using this application, you agree to comply with the OpenSky Network Terms of Use:
+
+1. DATA USAGE
+   - The data is provided for research and non-commercial purposes
+   - You must attribute The OpenSky Network when sharing or publishing data
+   - The data is provided "as is" without warranties of any kind
+
+2. ATTRIBUTION
+   - When sharing flight data from this app, include:
+     "Data provided by The OpenSky Network, https://opensky-network.org"
+
+3. RATE LIMITS
+   - Anonymous users: 10 requests per 10 seconds
+   - Authenticated users: 400 requests per hour (4000 per day)
+   - Do not attempt to circumvent these limits
+
+4. PROHIBITED ACTIVITIES
+   - Do not overload the OpenSky API with excessive requests
+   - Do not use the data for commercial purposes without permission
+   - Do not attempt to identify individuals from flight data
+
+5. DATA ACCURACY
+   - Flight data may be incomplete, delayed, or inaccurate
+   - Do not rely on this data for critical decisions
+   - Always verify important flight information with official sources
+
+6. ACCOUNT CREATION
+   - Consider creating a free OpenSky Network account for:
+     * Higher rate limits
+     * Better API performance
+     * Supporting the research community
+
+7. CONTACT
+   - For questions about data usage: https://opensky-network.org/about/contact
+   - Full terms of use: https://opensky-network.org/about/terms-of-use
+
+8. CHANGES TO TERMS
+   - OpenSky Network may update these terms at any time
+   - Continued use of this app constitutes acceptance of updated terms
+
+Last Updated: November 2024
+
+For the complete and most current terms, please visit:
+https://opensky-network.org/about/terms-of-use
