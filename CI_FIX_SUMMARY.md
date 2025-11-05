@@ -4,7 +4,7 @@
 
 **Date**: 2024-11-05  
 **Status**: Ready to push  
-**Total Commits**: 11 (8 fixes + 3 doc updates)
+**Total Commits**: 14 (9 fixes + 5 doc updates)
 
 ---
 
@@ -57,6 +57,19 @@
     - Added CI-FIX-006 documentation
     - Changed: `CI_FIX_LOG.md`
 
+12. **89f925d** - `docs(ci): update summary with macOS runner fix`
+    - Updated summary documentation
+    - Changed: `CI_FIX_SUMMARY.md`
+
+13. **369b5bb** - `fix(ci): specify Xcode 15.4 in project.yml for CI compatibility`
+    - Added xcodeVersion: "15.4" to prevent format 77 generation
+    - Ensures XcodeGen generates format 76 compatible with CI
+    - Changed: `FlightyClone/project.yml`
+
+14. **cca2bc1** - `docs(ci): update audit log with Xcode format compatibility fix`
+    - Added CI-FIX-007 documentation
+    - Changed: `CI_FIX_LOG.md`
+
 ---
 
 ## Files Changed
@@ -91,6 +104,10 @@
 5. ❌ → ✅ **macOS runner incompatibility**
    - macOS 13 doesn't support Xcode 15.3+ required by XcodeGen
    - Upgraded to macOS 14 with Xcode 15.4
+
+6. ❌ → ✅ **Xcode project format incompatibility**
+   - XcodeGen generating format 77 (Xcode 16) incompatible with CI
+   - Added xcodeVersion: "15.4" to project.yml
 
 ---
 
